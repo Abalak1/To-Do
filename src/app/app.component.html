@@ -1,21 +1,21 @@
 <h1>{{ title }}</h1>
 <input type="text" placeholder="enter" #task />
 
-<select [(ngModel)]="selectedOption" name="difficulty" id="x">
+<select [(ngModel)]="difficulty" name="difficulty">
   <option value="easy">Easy</option>
   <option value="medium">Medium</option>
   <option value="hard">Hard</option>
 </select>
 <br />
 <br />
-<button (click)="addTask(task.value, selectedOption)">Add new Task</button>
+<button (click)="addTask(task.value, difficulty)">Add new Task</button>
 <br />
 <br />
 <div>
   <h2>todo</h2>
   <ul *ngFor="let item of toDoList">
     <li>
-      {{ item.name }} -- {{ item.selectedOption }}
+      {{ item.name }} -- {{ item.difficulty }}
       <button (click)="moveTask(item.id)">Move</button
       ><button (click)="removeTask(item.id)">Remove</button>
     </li>
@@ -25,7 +25,7 @@
   <h2>inProgress</h2>
   <ul *ngFor="let item of inProgressList">
     <li>
-      {{ item.name }}-- {{ item.selectedOption
+      {{ item.name }}-- {{ item.difficulty
       }}<button (click)="moveTaskDone(item.id)">Move</button
       ><button (click)="moveTaskBackToDo(item.id)">movetotodo</button>
     </li>
@@ -35,7 +35,7 @@
   <h2>Done</h2>
   <ul *ngFor="let item of done">
     <li>
-      {{ item.name }}-- {{ item.selectedOption
+      {{ item.name }}-- {{ item.difficulty
       }}<button (click)="moveTaskBackProgress(item.id)">Movetoprogress</button>
     </li>
   </ul>

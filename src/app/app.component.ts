@@ -12,10 +12,11 @@ export class AppComponent {
   toDoList:any[]=[]
   inProgressList:any[]=[]
   done:any[]=[]
+  difficulty: any;
 
-  addTask(name:string,selectedOption:string){
+  addTask(name:string,difficulty:string){
     
-    this.toDoList.push({id:this.toDoList.length,name,selectedOption})
+    this.toDoList.push({id:this.toDoList.length,name,difficulty})
   }
   removeTask(id:number){
 
@@ -52,14 +53,8 @@ export class AppComponent {
 
   }
 
-  selectedOption: any;
-  printedOption: any;
 
-  
-  print() {
-    this.printedOption = this.selectedOption;
 
-  }
-  
- 
+
+
 }
